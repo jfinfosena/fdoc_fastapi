@@ -1,7 +1,7 @@
 ---
 title: "Encapsulación y Propiedades"
 position: 2
-date: 2025-08-01
+date: 2025-12-01
 ---
 
 # Encapsulación y propiedades

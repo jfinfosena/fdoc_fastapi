@@ -1,7 +1,7 @@
 ---
 title: "Polimorfismo y Clases Abstractas"
 position: 4
-date: 2025-08-01
+date: 2025-12-01
 ---
 
 # Polimorfismo y clases abstractas

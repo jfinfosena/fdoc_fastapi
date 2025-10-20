@@ -1,7 +1,7 @@
 ---
 title: "Conceptos y Clase/Objeto"
 position: 1
-date: 2025-08-01
+date: 2025-12-01
 ---
 
 # Conceptos básicos de POO

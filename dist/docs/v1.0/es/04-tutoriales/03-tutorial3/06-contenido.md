@@ -1,7 +1,7 @@
 ---
 title: "Diseño y Organización de Código"
 position: 6
-date: 2025-08-01
+date: 2025-12-01
 ---
 
 # Diseño y organización de código

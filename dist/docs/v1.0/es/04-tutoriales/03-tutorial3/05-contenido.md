@@ -1,7 +1,7 @@
 ---
 title: "Métodos Especiales y Dataclasses"
 position: 5
-date: 2025-08-01
+date: 2025-12-01
 ---
 
 # Métodos especiales y dataclasses
