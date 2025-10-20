@@ -13,7 +13,7 @@ El bloque de frontmatter debe estar al principio del archivo, encerrado entre do
 
 Aquí tienes una lista de todos los campos que puedes usar en el frontmatter:
 
-+++mermaid
+```mermaid
 graph TD
     subgraph "Campos de Frontmatter"
         A("--- (Inicio)") --> B
@@ -25,7 +25,7 @@ graph TD
         G --> H["&#96;hidden&#96;<br>boolean, opcional"]
         H --> I("--- (Fin)")
     end
-+++
+```
 
 ---
 
@@ -74,8 +74,7 @@ date: "2024-12-01"
 ---
 
 ### `position`
-- **Tipo:** 
-umber`
+- **Tipo:** `number`
 - **Obligatorio:** No
 - **Descripción:** Un número para controlar el orden de las páginas dentro de una carpeta en la barra de navegación lateral. Las páginas se ordenan primero por `position` (de menor a mayor) y luego alfabéticamente por título.
 
@@ -90,8 +89,7 @@ position: 1
 ---
 
 ### `folder_position`
-- **Tipo:** 
-umber`
+- **Tipo:** `number`
 - **Obligatorio:** No
 - **Descripción:** Similar a `position`, pero se usa exclusivamente en un archivo `index.md` para determinar el orden de su carpeta contenedora en la barra de navegación.
 
@@ -132,4 +130,3 @@ title: "Página Borrador"
 hidden: true
 ---
 ```
-

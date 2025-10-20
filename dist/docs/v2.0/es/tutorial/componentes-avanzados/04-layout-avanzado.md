@@ -7,7 +7,7 @@ position: 4
 
 Estos componentes te ayudan a crear páginas visualmente impactantes, narrativas complejas y diseños flexibles.
 
-+++mermaid
+```mermaid
 graph TD
     subgraph "Componentes de Layout Avanzado v2.0"
         A["Grid"] --> B["Sección Hero"]
@@ -15,7 +15,7 @@ graph TD
         C --> D["Animaciones"]
         D --> E["Scrollytelling"]
     end
-+++
+```
 
 ## Grid
 
@@ -24,7 +24,7 @@ Crea un diseño de cuadrícula flexible para organizar cualquier tipo de conteni
 **Sintaxis:**
 
 ````markdown
-+++grid
+```grid
 ---
 columns: 3 # Puedes usar 2, 3 o 4 columnas
 ---
@@ -40,12 +40,12 @@ Este es el contenido de la segunda columna.
 
 ### Columna 3
 Contenido de la tercera columna. Puedes incluir imágenes, listas, etc.
-+++
+```
 ````
 
 **Resultado:**
 
-+++grid
+```grid
 ---
 columns: 3
 ---
@@ -64,7 +64,7 @@ columns: 3
 #### Tarjeta de Característica 3
 - **Potente:** Ideal para crear diseños complejos de forma rápida.
 - **Versátil:** Combínalo con tarjetas, imágenes o texto.
-+++
+```
 
 ## Sección Hero (Hero Section)
 
@@ -73,7 +73,7 @@ Crea una cabecera de página impresionante con un título grande, subtítulo y b
 **Sintaxis:**
 
 ````markdown
-+++hero-section
+```hero-section
 ---
 title: "Título Principal Impactante"
 subtitle: "Un subtítulo que describe tu proyecto de manera concisa y atractiva."
@@ -88,12 +88,12 @@ buttons:
     url: "#"
     variant: "secondary"
 ---
-+++
+```
 ````
 
 **Resultado:**
 
-+++hero-section
+```hero-section
 ---
 title: "Título Principal Impactante"
 subtitle: "Un subtítulo que describe tu proyecto de manera concisa y atractiva."
@@ -108,7 +108,7 @@ buttons:
     url: "#"
     variant: "secondary"
 ---
-+++
+```
 
 ## Llamada a la Acción (CTA)
 
@@ -117,7 +117,7 @@ Un bloque diseñado para captar la atención del usuario y dirigirlo a una acci�
 **Sintaxis:**
 
 ````markdown
-+++cta
+```cta
 ---
 title: "¿Listo para empezar?"
 buttons:
@@ -129,12 +129,12 @@ buttons:
     variant: "secondary"
 ---
 Este es el contenido principal del CTA. Puedes explicar por qué el usuario debería realizar la acción.
-+++
+```
 ````
 
 **Resultado:**
 
-+++cta
+```cta
 ---
 title: "¿Listo para empezar?"
 buttons:
@@ -146,7 +146,7 @@ buttons:
     variant: "secondary"
 ---
 Este es el contenido principal del CTA. Puedes explicar por qué el usuario debería realizar la acción.
-+++
+```
 
 ## Animaciones (Animate)
 
@@ -185,7 +185,7 @@ Crea una narrativa visual donde el contenido multimedia en un panel fijo cambia 
 **Sintaxis:**
 
 ````markdown
-+++scrollytelling
+```scrollytelling
 ---
 steps:
   - media:
@@ -194,29 +194,29 @@ steps:
       alt: "Escritorio con portátil"
     content: |
       ### El Inicio
-      A medida que te desplazas, el panel de la derecha (o inferior en móviles) se actualizará.
-      Este es el **primer paso** de nuestra historia.
+      A medida que te desplazas, el panel de la derecha se actualizará.
+      Este es el **primer paso**.
   - media:
       type: image
       src: "https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?q=80&w=600&h=400&fit=crop"
       alt: "Otro escritorio con portátil"
     content: |
       ### El Desarrollo
-      Ahora estás viendo el **segundo paso**. La imagen ha cambiado para reflejar este nuevo punto en la narrativa.
+      Ahora estás viendo el **segundo paso**. La imagen ha cambiado para reflejar el contenido.
   - media:
       type: code
       lang: "javascript"
-      code: "const conclusion = '¡El Scrollytelling es genial!';"
+      code: "const x = 'final';"
     content: |
       ### La Conclusión
-      El último paso puede incluso mostrar fragmentos de código, como este.
+      El último paso puede incluso mostrar código o diagramas de Mermaid.
 ---
-+++
+```
 ````
 
 **Resultado:**
 
-+++scrollytelling
+```scrollytelling
 ---
 steps:
   - media:
@@ -242,6 +242,4 @@ steps:
       ### La Conclusión
       El último paso puede incluso mostrar fragmentos de código, como este.
 ---
-+++
-
-
+```

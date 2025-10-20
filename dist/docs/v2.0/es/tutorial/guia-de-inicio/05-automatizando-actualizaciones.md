@@ -31,7 +31,4 @@ npm run update-manifest
 
 Este comando ejecutará el script `scripts/update-file-manifest.js`, que reconstruirá el manifiesto con la estructura de archivos actual.
 
-> **Nota:** Si es la primera vez que ejecutas un comando 
-pm`, puede que necesites ejecutar 
-pm install` primero para asegurarte de que tu entorno local está configurado.
-
+> **Nota:** Si es la primera vez que ejecutas un comando `npm`, puede que necesites ejecutar `npm install` primero para asegurarte de que tu entorno local está configurado.

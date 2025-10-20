@@ -9,7 +9,7 @@ date: "2024-09-04"
 
 Para comenzar con Spring Boot, necesitas algunas herramientas esenciales. Repasemos el proceso de configuración para un entorno de desarrollo típico.
 
-+++steps
+```steps
 ### Paso 1: Instalar un JDK
 Asegúrate de tener un **Java Development Kit (JDK)** versión 17 o superior instalado en tu sistema. Recomendamos usar una build de código abierto como [Adoptium Temurin](https://adoptium.net/). Puedes verificar tu instalación ejecutando `java -version` en tu terminal.
 
@@ -21,19 +21,19 @@ Un **Entorno de Desarrollo Integrado (IDE)** te facilitará mucho la vida. Recom
 - **IntelliJ IDEA**: La Community Edition es gratuita y tiene un excelente soporte para Spring Boot.
 - **Visual Studio Code**: Con el Extension Pack for Java y el Spring Boot Extension Pack.
 - **Eclipse IDE for Java EE Developers**: Una opción clásica para el desarrollo en Java.
-+++
+```
 
 Después de instalar Maven, verifica tu instalación ejecutando este comando en tu terminal:
 
-+++tabs
+```tabs
 ---[tab title="Unix/macOS" lang="sh"]---
 mvn -version
 ---[tab title="Windows" lang="sh"]---
 mvn -version
-+++
+```
 Esto debería mostrar la versión de Maven instalada, confirmando que está listo para usarse.
 
-+++accordion
+```accordion
 ---
 allowMultiple: false
 ---
@@ -42,6 +42,4 @@ Gradle es otra potente herramienta de construcción que utiliza un DSL de Groovy
 
 ### ¿Qué hay de otros JDKs?
 Aunque recomendamos Adoptium, otras builds de JDK como Amazon Corretto, Oracle OpenJDK o Microsoft Build of OpenJDK también son excelentes opciones y totalmente compatibles con Spring Boot.
-+++
-
-
+```

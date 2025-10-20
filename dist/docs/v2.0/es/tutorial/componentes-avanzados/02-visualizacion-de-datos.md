@@ -13,22 +13,22 @@ Renderiza diagramas y flujogramas a partir de texto utilizando la sintaxis de [M
 
 **Sintaxis:**
 ````markdown
-+++mermaid
+```mermaid
 graph TD;
     A[Inicio] --> B{¿Funciona?};
     B -->|Sí| C[Fin];
     B -->|No| D[Revisar];
     D --> B;
-+++
+```
 ````
 **Resultado:**
-+++mermaid
+```mermaid
 graph TD;
     A[Inicio] --> B{¿Funciona?};
     B -->|Sí| C[Fin];
     B -->|No| D[Revisar];
     D --> B;
-+++
+```
 
 ## Línea de Tiempo (Timeline)
 
@@ -36,7 +36,7 @@ Muestra una secuencia de eventos en orden cronológico.
 
 **Sintaxis:**
 ````markdown
-+++timeline
+```timeline
 ### Título del Evento 1 | 24 de Mayo, 2024
 Contenido del primer evento.
 
@@ -44,10 +44,10 @@ Contenido del primer evento.
 
 ### Título del Evento 2 | 25 de Mayo, 2024
 Contenido del segundo evento.
-+++
+```
 ````
 **Resultado:**
-+++timeline
+```timeline
 ### Título del Evento 1 | 24 de Mayo, 2024
 Contenido del primer evento.
 
@@ -55,7 +55,7 @@ Contenido del primer evento.
 
 ### Título del Evento 2 | 25 de Mayo, 2024
 Contenido del segundo evento.
-+++
+```
 
 ## Tarjetas (Cards)
 
@@ -63,7 +63,7 @@ Crea una cuadrícula de tarjetas enlazables, ideales para mostrar característic
 
 **Sintaxis:**
 ````markdown
-+++cards
+```cards
 ---
 columns: 2
 items:
@@ -76,10 +76,10 @@ items:
     href: "/ruta/a/otra/pagina"
     content: "Una breve descripción de la segunda característica."
 ---
-+++
+```
 ````
 **Resultado:**
-+++cards
+```cards
 ---
 columns: 2
 items:
@@ -92,7 +92,7 @@ items:
     href: "#"
     content: "Una breve descripción de la segunda característica."
 ---
-+++
+```
 
 ## Pasos (Steps)
 
@@ -100,7 +100,7 @@ Guía a los usuarios a través de un proceso con una lista numerada y visual.
 
 **Sintaxis:**
 ````markdown
-+++steps
+```steps
 ### Primer Paso
 Contenido que describe el primer paso del proceso.
 
@@ -109,10 +109,10 @@ Contenido que describe el segundo paso.
 
 ### Tercer Paso
 Y así sucesivamente...
-+++
+```
 ````
 **Resultado:**
-+++steps
+```steps
 ### Primer Paso
 Contenido que describe el primer paso del proceso.
 
@@ -121,7 +121,7 @@ Contenido que describe el segundo paso.
 
 ### Tercer Paso
 Y así sucesivamente...
-+++
+```
 
 ## Árbol de Archivos (File Tree)
 
@@ -129,7 +129,7 @@ Muestra una estructura de directorios y archivos, útil para proyectos de softwa
 
 **Sintaxis:**
 ````markdown
-+++file-tree
+```file-tree
 ---
 highlight:
   - "src/components/"
@@ -144,10 +144,9 @@ project-root/
 ├── package.json
 └── README.md
 ```
-+++
 ````
 **Resultado:**
-+++file-tree
+```file-tree
 ---
 highlight:
   - "src/components/"
@@ -161,16 +160,15 @@ project-root/
 │   └── index.tsx
 ├── package.json
 └── README.md
-+++
+```
 
 ## Perfil de Equipo (Team Profile)
 
 Muestra a los miembros de tu equipo con avatares, roles y enlaces sociales.
 
 **Sintaxis:**
-
 ````markdown
-+++team-profile
+```team-profile
 ---
 columns: 3
 members:
@@ -183,25 +181,11 @@ members:
         url: "#"
       - icon: "GitHub"
         url: "#"
-  - name: "John Smith"
-    role: "Backend Developer"
-    avatar: "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=150&h=150&fit=crop"
-    bio: "Especialista en Node.js y bases de datos."
-    social:
-      - icon: "LinkedIn"
-        url: "#"
-  - name: "Alice Johnson"
-    role: "UI/UX Designer"
-    avatar: "https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?q=80&w=150&h=150&fit=crop"
-    bio: "Diseñadora centrada en el usuario con habilidades en Figma."
-    social:
-      - icon: "Behance"
-        url: "#"
 ---
-+++
+```
 ````
 **Resultado:**
-+++team-profile
+```team-profile
 ---
 columns: 3
 members:
@@ -221,15 +205,8 @@ members:
     social:
       - icon: "LinkedIn"
         url: "#"
-  - name: "Alice Johnson"
-    role: "UI/UX Designer"
-    avatar: "https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?q=80&w=150&h=150&fit=crop"
-    bio: "Diseñadora centrada en el usuario con habilidades en Figma."
-    social:
-      - icon: "Behance"
-        url: "#"
 ---
-+++
+```
 
 ## Lista de Características (Feature List)
 
@@ -237,7 +214,7 @@ Presenta una lista de características clave con iconos y descripciones.
 
 **Sintaxis:**
 ````markdown
-+++feature-list
+```feature-list
 ---
 items:
   - icon: "BoltIcon"
@@ -247,10 +224,10 @@ items:
     title: "Seguro y Confiable"
     content: "Construido con las mejores prácticas de seguridad."
 ---
-+++
+```
 ````
 **Resultado:**
-+++feature-list
+```feature-list
 ---
 items:
   - icon: "BoltIcon"
@@ -260,7 +237,7 @@ items:
     title: "Seguro y Confiable"
     content: "Construido con las mejores prácticas de seguridad."
 ---
-+++
+```
 
 ## Tabla Comparativa (Comparison Table)
 
@@ -268,7 +245,7 @@ Compara características entre diferentes productos o planes.
 
 **Sintaxis:**
 ````markdown
-+++comparison-table
+```comparison-table
 ---
 headers:
   - "Característica"
@@ -280,10 +257,10 @@ rows:
   - ["API", "cross", "check"]
   - ["Dominio Personalizado", "no", "yes"]
 ---
-+++
+```
 ````
 **Resultado:**
-+++comparison-table
+```comparison-table
 ---
 headers:
   - "Característica"
@@ -295,7 +272,7 @@ rows:
   - ["API", "cross", "check"]
   - ["Dominio Personalizado", "no", "yes"]
 ---
-+++
+```
 
 ## Tarjetas de Estadísticas (Stat Cards)
 
@@ -303,7 +280,7 @@ Muestra métricas o KPIs clave de una manera visualmente impactante.
 
 **Sintaxis:**
 ````markdown
-+++stat-cards
+```stat-cards
 ---
 columns: 4
 items:
@@ -315,19 +292,11 @@ items:
     value: "50K+"
     label: "Usuarios Activos"
     color: "green"
-  - icon: "ServerIcon"
-    value: "99.9%"
-    label: "Uptime"
-    color: "teal"
-  - icon: "TrendingUpIcon"
-    value: "+15%"
-    label: "Crecimiento"
-    color: "purple"
 ---
-+++
+```
 ````
 **Resultado:**
-+++stat-cards
+```stat-cards
 ---
 columns: 4
 items:
@@ -348,7 +317,7 @@ items:
     label: "Crecimiento"
     color: "purple"
 ---
-+++
+```
 
 ## Gráficos (Charts)
 
@@ -356,7 +325,7 @@ Renderiza gráficos usando Chart.js directamente desde tu Markdown.
 
 **Sintaxis:**
 ````markdown
-+++charts
+```charts
 ---
 type: 'bar'
 title: 'Ventas por Trimestre'
@@ -366,10 +335,10 @@ data:
     - label: 'Ventas (en millones)'
       data: [12, 19, 3, 5]
 ---
-+++
+```
 ````
 **Resultado:**
-+++charts
+```charts
 ---
 type: 'bar'
 title: 'Ventas por Trimestre'
@@ -379,6 +348,4 @@ data:
     - label: 'Ventas (en millones)'
       data: [12, 19, 3, 5]
 ---
-+++
-
-
+```

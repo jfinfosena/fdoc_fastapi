@@ -28,7 +28,7 @@ Puedes añadir opciones como alineación y sombra en el texto `alt`.
 ![Una bonita vista{align=right width=300px shadow=true}](https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=800)
 Esta es una demostración de cómo el texto fluye alrededor de una imagen alineada. El componente de imagen respeta las opciones de alineación y anchura para integrarse perfectamente en tu contenido. Haz clic en la imagen para abrirla en el visor de pantalla completa.
 
-
+<br clear="all" />
 
 ## Galería de Imágenes (Image Gallery)
 
@@ -36,7 +36,7 @@ Muestra múltiples imágenes en una cuadrícula interactiva. Todas las imágenes
 
 **Sintaxis:**
 ````markdown
-+++gallery
+```gallery
 ---
 columns: 3
 items:
@@ -47,10 +47,10 @@ items:
   - src: "https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?w=400"
     alt: "Bosque brumoso"
 ---
-+++
+```
 ````
 **Resultado:**
-+++gallery
+```gallery
 ---
 columns: 3
 items:
@@ -61,7 +61,7 @@ items:
   - src: "https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?w=400"
     alt: "Bosque brumoso"
 ---
-+++
+```
 
 ## Video Embebido (Video Embed)
 
@@ -69,20 +69,20 @@ Incrusta videos de YouTube o Vimeo fácilmente.
 
 **Sintaxis:**
 ````markdown
-+++video
+```video
 ---
 src: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
 title: "Ejemplo de Video de YouTube"
 ---
-+++
+```
 ````
 **Resultado:**
-+++video
+```video
 ---
 src: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
 title: "Ejemplo de Video de YouTube"
 ---
-+++
+```
 
 ## Embebido de Código en Vivo (Live Code Embed)
 
@@ -90,19 +90,17 @@ Incrusta editores de código interactivos de servicios como CodePen, JSFiddle o 
 
 **Sintaxis:**
 ````markdown
-+++live-code
+```live-code
 ---
 src: "https://codepen.io/chriscoyier/pen/gOMdOr"
 title: "Ejemplo de CodePen"
 ---
-+++
+```
 ````
 **Resultado:**
-+++live-code
+```live-code
 ---
 src: "https://codepen.io/chriscoyier/pen/gOMdOr"
 title: "Ejemplo de CodePen"
 ---
-+++
-
-
+```

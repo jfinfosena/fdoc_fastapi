@@ -42,6 +42,9 @@ public class ProductController {
 
 Usa el cliente REST a continuación para probar el endpoint que acabas de crear. Ejecuta tu aplicación y haz clic en "Enviar".
 
-+++
-
-+++
+```rest-client
+---
+method: "GET"
+url: "http://localhost:8080/products/123"
+---
+```

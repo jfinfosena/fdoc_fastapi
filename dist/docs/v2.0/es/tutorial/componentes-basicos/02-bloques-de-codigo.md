@@ -7,7 +7,7 @@ position: 2
 
 La plataforma ofrece dos componentes principales para mostrar código: un bloque de código estándar y un bloque de código con pestañas.
 
-+++mermaid
+```mermaid
 graph TD
     subgraph "Estructura de Bloques de Código"
         A["Bloque Estándar<br>Usa delimitador 'lang'"]
@@ -18,32 +18,33 @@ graph TD
     C --> D["Separador:<br>'---[tab...]---'"]
     D --> E["Contenido del código para la pestaña"]
     E --> C
-+++
+```
 
 ## Bloque de Código Estándar
 
 Crea un bloque de código estándar usando la sintaxis de Markdown con el identificador de lenguaje.
 
 ````markdown
-+++javascript
-function greet(name) {
-  // Un simple comentario
-  console.log(`Hello, ${name}!`);
-}
-
-+++
-````
-
-**Resultado:**
-
-+++javascript
+```javascript
 function greet(name) {
   // Un simple comentario
   console.log(`Hello, ${name}!`);
 }
 
 greet('World');
-+++
+```
+````
+
+**Resultado:**
+
+```javascript
+function greet(name) {
+  // Un simple comentario
+  console.log(`Hello, ${name}!`);
+}
+
+greet('World');
+```
 
 **Características:**
 - **Barra de título estilo macOS**: Con el nombre del lenguaje.
@@ -59,7 +60,7 @@ Para mostrar el mismo fragmento de código en diferentes lenguajes, puedes usar 
 Se crea con un bloque de código de lenguaje `tabs`. Dentro, cada pestaña se define con un separador especial.
 
 ````markdown
-+++tabs
+```tabs
 ---[tab title="JavaScript" lang="js"]---
 function greet(name) {
   return `Hello, ${name}!`;
@@ -76,12 +77,12 @@ print(greet('World'))
 # Esto es solo un ejemplo de cómo se ve
 # con un lenguaje diferente.
 echo "Hola, Mundo"
-+++
+```
 ````
 
 **Resultado:**
 
-+++tabs
+```tabs
 ---[tab title="JavaScript" lang="js"]---
 function greet(name) {
   return `Hello, ${name}!`;
@@ -98,10 +99,9 @@ print(greet('World'))
 # Esto es solo un ejemplo de cómo se ve
 # con un lenguaje diferente.
 echo "Hola, Mundo"
-+++
+```
 
 **Características:**
 - Todas las características del bloque de código estándar.
 - Pestañas clickables para cambiar entre lenguajes.
 - El título y el lenguaje se definen en el separador `---[tab title="..." lang="..."]---`.
-

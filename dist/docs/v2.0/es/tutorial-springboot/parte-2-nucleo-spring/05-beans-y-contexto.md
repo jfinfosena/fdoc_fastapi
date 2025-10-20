@@ -21,7 +21,7 @@ El `ApplicationContext` es la interfaz central que proporciona la configuración
 
 En lugar de definir beans manualmente en XML, Spring Boot utiliza el escaneo del classpath para encontrar clases anotadas con "anotaciones de estereotipo" especiales y registrarlas como beans en el `ApplicationContext`.
 
-+++grid
+```grid
 ---
 columns: 2
 ---
@@ -39,5 +39,4 @@ Indica que una clase anotada es un "Repositorio", típicamente utilizado en la c
 ---
 ### `@Controller` / `@RestController`
 Estas anotaciones marcan una clase como un controlador web, utilizado en la capa de presentación para manejar las peticiones HTTP entrantes.
-+++
-
+```

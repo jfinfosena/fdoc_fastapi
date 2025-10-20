@@ -14,7 +14,7 @@ Un cliente HTTP interactivo para realizar solicitudes a APIs directamente desde 
 **Sintaxis:**
 
 ````markdown
-+++rest-client
+```rest-client
 ---
 method: "GET"
 url: "https://jsonplaceholder.typicode.com/posts/1"
@@ -22,12 +22,12 @@ headers:
   Content-Type: "application/json"
 body: ""
 ---
-+++
+```
 ````
 
 **Resultado:**
 
-+++rest-client
+```rest-client
 ---
 method: "GET"
 url: "https://jsonplaceholder.typicode.com/posts/1"
@@ -35,7 +35,7 @@ headers:
   Content-Type: "application/json"
 body: ""
 ---
-+++
+```
 
 ## Explorador de API (ApiExplorer)
 
@@ -44,7 +44,7 @@ Documenta y prueba tus endpoints de API de una manera estructurada y fácil de u
 **Sintaxis:**
 
 ````markdown
-+++api-explorer
+```api-explorer
 ---
 baseUrl: "https://jsonplaceholder.typicode.com"
 endpoints:
@@ -61,12 +61,12 @@ endpoints:
           type: "integer"
           example: 1
 ---
-+++
+```
 ````
 
 **Resultado:**
 
-+++api-explorer
+```api-explorer
 ---
 baseUrl: "https://jsonplaceholder.typicode.com"
 endpoints:
@@ -103,7 +103,7 @@ endpoints:
                 type: "integer"
                 example: 1
 ---
-+++
+```
 
 ## Funciones de IA con Gemini
 
@@ -120,6 +120,3 @@ En cada página de contenido, aparece una barra de acciones flotante en la esqui
 - **Simplificar Concepto**: Identifica el concepto más complejo o técnico de la página y lo explica en términos sencillos utilizando una analogía útil.
 - **Analizar Código**: Te permite seleccionar cualquier bloque de código de la página y pedirle a la IA que explique lo que hace en un lenguaje sencillo o que lo traduzca a otro lenguaje de programación.
 - **Generador de Podcast con IA**: Transforma el contenido del documento en un breve podcast de audio. Puedes elegir entre un estilo de un solo narrador (monólogo) o una conversación entre dos personas (diálogo) y seleccionar entre varias voces de IA.
-
-
-

@@ -19,7 +19,7 @@ A medida que tu aplicación evoluciona, el esquema de tu base de datos cambiará
 
 Esta línea de tiempo ilustra cómo las migraciones versionan tu base de datos a lo largo del tiempo.
 
-+++timeline
+```timeline
 ### V1__Create_customer_table.sql | 2024-10-10
 Se crea el esquema inicial con la tabla `customer`.
 
@@ -32,5 +32,4 @@ Se añade una nueva columna `email` a la tabla `customer` para almacenar los cor
 
 ### V3__Add_orders_table.sql | 2024-10-15
 Se introduce una nueva tabla `orders` para rastrear las compras de los clientes.
-+++
-
+```

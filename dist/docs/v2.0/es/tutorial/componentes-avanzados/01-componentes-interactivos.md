@@ -14,7 +14,7 @@ Un acordeón es perfecto para ocultar y mostrar contenido, como en una sección 
 **Sintaxis:**
 
 ````markdown
-+++accordion
+```accordion
 ---
 allowMultiple: false # Opcional: true para permitir abrir varios a la vez
 ---
@@ -26,12 +26,12 @@ Este es el contenido del segundo ítem.
 
 ### ¿Y el tercero?
 Contenido del tercer ítem.
-+++
+```
 ````
 
 **Resultado:**
 
-+++accordion
+```accordion
 ---
 allowMultiple: false
 ---
@@ -43,7 +43,7 @@ Este es el contenido del segundo ítem.
 
 ### ¿Y el tercero?
 Contenido del tercer ítem.
-+++
+```
 
 ## Cuestionario (Quiz)
 
@@ -52,7 +52,7 @@ Crea un cuestionario de opción múltiple para evaluar la comprensión del usuar
 **Sintaxis:**
 
 ````markdown
-+++quiz
+```quiz
 ---
 questions:
   - text: "¿De qué color es el cielo?"
@@ -68,12 +68,12 @@ questions:
       - 5
     answer: 4
 ---
-+++
+```
 ````
 
 **Resultado:**
 
-+++quiz
+```quiz
 ---
 questions:
   - text: "¿De qué color es el cielo?"
@@ -89,7 +89,7 @@ questions:
       - 5
     answer: "4"
 ---
-+++
+```
 
 ## Carrusel (Carousel)
 
@@ -98,10 +98,10 @@ Muestra una serie de imágenes en un carrusel interactivo.
 **Sintaxis:**
 
 ````markdown
-+++carousel
+```carousel
 ---
 autoPlay: true
-interval: 3000
+interval: 3000 # en milisegundos
 showDots: true
 items:
   - src: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=800&h=400&fit=crop"
@@ -111,12 +111,12 @@ items:
   - src: "https://images.unsplash.com/photo-1483401757487-2131b2621388?q=80&w=800&h=400&fit=crop"
     alt: "Sendero en un frondoso bosque verde"
 ---
-+++
+```
 ````
 
 **Resultado:**
 
-+++carousel
+```carousel
 ---
 autoPlay: true
 interval: 3000
@@ -129,7 +129,7 @@ items:
   - src: "https://images.unsplash.com/photo-1483401757487-2131b2621388?q=80&w=800&h=400&fit=crop"
     alt: "Sendero en un frondoso bosque verde"
 ---
-+++
+```
 
 ## Tutorial Slider
 
@@ -137,7 +137,7 @@ Combina un panel de medios (imagen, código) con un panel de texto para crear un
 
 **Sintaxis:**
 ````markdown
-+++tutorial-slider
+```tutorial-slider
 ---
 steps:
   - media:
@@ -156,11 +156,10 @@ steps:
       ### Hola Mundo
       Este es el segundo paso. Muestra un ejemplo de código básico.
 ---
-+++
+```
 ````
 **Resultado:**
-
-+++tutorial-slider
+```tutorial-slider
 ---
 steps:
   - media:
@@ -179,6 +178,4 @@ steps:
       ### Hola Mundo
       Este es el segundo paso. Muestra un ejemplo de código básico.
 ---
-+++
-
-
+```

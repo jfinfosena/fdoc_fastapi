@@ -28,7 +28,7 @@ Actuator proporciona varios endpoints. Los más comunes son:
 
 Usa el explorador de API a continuación para probar estos endpoints directamente. Asegúrate de que tu aplicación se esté ejecutando.
 
-+++api-explorer
+```api-explorer
 ---
 baseUrl: "http://localhost:8080/actuator"
 endpoints:
@@ -49,15 +49,22 @@ endpoints:
     title: "Obtener Métrica Específica"
     description: "Recupera el valor de una métrica específica, como la memoria JVM usada."
 ---
-+++
+```
 
 ## Visualización de Métricas
 
 Los datos de los endpoints de Actuator se pueden alimentar en sistemas de monitoreo para crear dashboards. El siguiente gráfico es un ejemplo de cómo podrías visualizar una métrica como el uso de la CPU a lo largo del tiempo.
 
-+++
-
-+++
-
-
-
+```charts
+---
+type: 'line'
+title: 'Uso de CPU del Proceso (%)'
+data:
+  labels: ['-50s', '-40s', '-30s', '-20s', '-10s', 'Ahora']
+  datasets:
+    - label: 'Uso de CPU'
+      data: [12, 19, 8, 15, 10, 22]
+      fill: true
+      tension: 0.4
+---
+```

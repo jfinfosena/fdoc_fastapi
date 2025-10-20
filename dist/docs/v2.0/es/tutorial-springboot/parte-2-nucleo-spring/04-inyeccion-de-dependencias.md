@@ -13,7 +13,7 @@ Dos principios fundamentales en Spring son la Inversión de Control y la Inyecci
 
 Normalmente, tu código crea y gestiona el ciclo de vida de sus objetos. Con IoC, este control se "invierte": el framework (el contenedor de Spring) es responsable de crear, configurar y gestionar los objetos.
 
-+++mermaid
+```mermaid
 graph TD
     subgraph "Flujo de Control Tradicional"
         A[MyService] --> B["new MyRepository()"]
@@ -23,7 +23,7 @@ graph TD
         C --> E["Crea MyService"]
         D --> E
     end
-+++
+```
 
 ## Inyección de Dependencias (DI)
 
@@ -47,4 +47,3 @@ public class MyService {
     }
 }
 ```
-

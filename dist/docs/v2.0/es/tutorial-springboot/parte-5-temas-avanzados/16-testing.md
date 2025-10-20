@@ -9,9 +9,19 @@ date: "2024-10-16"
 
 Spring Boot proporciona un excelente soporte para pruebas.
 
-+++
-
-+++
+```comparison-table
+---
+headers:
+  - "Aspecto"
+  - { text: "Prueba Unitaria", highlight: false }
+  - { text: "Prueba de Integración", highlight: true }
+rows:
+  - ["Alcance", "Una sola clase", "Múltiples componentes colaborando"]
+  - ["Velocidad", "Muy Rápida", "Más Lenta"]
+  - ["Dependencias", "Simuladas (con Mockito)", "Reales (o versiones en memoria)"]
+  - ["Contexto de Spring", "No", "Sí (`@SpringBootTest`)"]
+---
+```
 
 ## Pruebas Unitarias
 
@@ -37,7 +47,7 @@ class MyApplicationTests {
 
 ### ¡Pon a Prueba tu Conocimiento!
 
-+++quiz
+```quiz
 ---
 questions:
   - text: "¿Qué anotación se usa para cargar el ApplicationContext completo de Spring para una prueba de integración?"
@@ -53,6 +63,4 @@ questions:
       - "AssertJ"
     answer: "Mockito"
 ---
-+++
-
-
+```

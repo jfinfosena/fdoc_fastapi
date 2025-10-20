@@ -27,15 +27,35 @@ Esto descargará un archivo ZIP. Descomprímelo y ábrelo en tu IDE favorito.
 
 El proyecto generado tiene una estructura estándar. El componente `file-tree` a continuación muestra los archivos y directorios clave.
 
-+++
-
-+++
+```file-tree
+---
+highlight:
+  - "src/main/java/com/example/demo/DemoApplication.java"
+  - "pom.xml"
+annotations:
+  "pom.xml": "Dependencias y configuración del build"
+  "DemoApplication.java": "El punto de entrada principal de la app"
+---
+demo/
+├── .mvn/
+├── src/
+│   ├── main/
+│   │   ├── java/com/example/demo/
+│   │   │   └── DemoApplication.java
+│   │   └── resources/
+│   │       └── application.properties
+│   └── test/
+├── .gitignore
+├── mvnw
+├── mvnw.cmd
+└── pom.xml
+```
 
 ### Explicación de Archivos Clave
 
 A continuación se muestra el contenido de los archivos más importantes para empezar. Para ver la aplicación en acción, crea un nuevo archivo `HelloController.java` dentro del directorio `src/main/java/com/example/demo/`.
 
-+++tabs
+```tabs
 ---[tab title="pom.xml" lang="xml"]---
 <!-- ... (metadatos) ... -->
 <dependencies>
@@ -80,7 +100,7 @@ public class HelloController {
         return "¡Hola, Mundo!";
     }
 }
-+++
+```
 
 ### Ejecutando la Aplicación
 
@@ -89,13 +109,11 @@ Puedes ejecutar la aplicación de dos maneras principales: desde tu IDE o usando
 1.  **Desde tu IDE**: Busca el archivo `DemoApplication.java` y ejecuta su método `main`.
 2.  **Desde la terminal**: Navega al directorio raíz del proyecto y ejecuta el comando apropiado para tu sistema operativo.
 
-+++tabs
+```tabs
 ---[tab title="Unix/macOS" lang="sh"]---
 ./mvnw spring-boot:run
 ---[tab title="Windows" lang="sh"]---
 mvnw.cmd spring-boot:run
-+++
+```
 
 Una vez que la aplicación inicie, abre tu navegador web y visita `http://localhost:8080`. ¡Deberías ver el mensaje "¡Hola, Mundo!".
-
-

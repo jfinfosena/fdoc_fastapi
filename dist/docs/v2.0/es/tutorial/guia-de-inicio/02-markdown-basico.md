@@ -7,13 +7,13 @@ position: 2
 
 Esta plataforma soporta la sintaxis estándar de [GitHub Flavored Markdown (GFM)](https://github.github.com/gfm/) y la extiende con características adicionales como fórmulas matemáticas y imágenes personalizables.
 
-+++mermaid
+```mermaid
 graph TD
     subgraph "Características Principales de Markdown"
         A["**Texto**<br>Negrita, Cursiva, etc."] --> B["**Estructura**<br>Listas, Tablas, Citas"]
         B --> C["**Contenido Enriquecido**<br>Imágenes, Fórmulas KaTeX"]
     end
-+++
+```
 
 ## Frontmatter
 
@@ -124,4 +124,3 @@ Simplemente añade otra referencia para una segunda nota.[^nota-larga]
 
 [^1]: Este es el contenido de la primera nota al pie.
 [^nota-larga]: Y este es el contenido de la segunda nota, que puede ser más larga y contener múltiples párrafos.
-
