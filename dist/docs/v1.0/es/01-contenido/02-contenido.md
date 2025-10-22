@@ -39,6 +39,27 @@ if __name__ == "__main__":
     uvicorn.run(app, host="0.0.0.0", port=8000)
 ```
 
+## Decoradores en FastAPI para Métodos HTTP
+
+En FastAPI, los **decoradores** son una forma elegante y simple de definir rutas (path operations) en tu API web. Estos decoradores se aplican directamente sobre funciones de Python y especifican tanto la ruta (path) como el método HTTP que la función manejará. La sintaxis general es `@app.método_http("/ruta")`, donde `app` es una instancia de la clase `FastAPI`.
+
+FastAPI hereda de Starlette y convierte automáticamente las respuestas (como diccionarios, listas o cadenas) en JSON. Las funciones pueden ser síncronas (`def`) o asíncronas (`async def`), lo que las hace ideales para aplicaciones de alto rendimiento.
+
+## Métodos HTTP Comunes y Sus Decoradores
+
+FastAPI soporta todos los métodos HTTP estándar. Aquí va una tabla con los más usados, su propósito típico y el decorador correspondiente:
+
+| Método HTTP | Decorador              | Uso Típico                          |
+|-------------|------------------------|-------------------------------------|
+| **GET**    | `@app.get(path)`      | Leer datos (consultas).             |
+| **POST**   | `@app.post(path)`     | Crear nuevos datos.                 |
+| **PUT**    | `@app.put(path)`      | Actualizar datos existentes (reemplazo completo). |
+| **DELETE** | `@app.delete(path)`   | Eliminar datos.                     |
+| **PATCH**  | `@app.patch(path)`    | Actualizar parcialmente datos.      |
+| **OPTIONS**| `@app.options(path)`  | Describir opciones de comunicación. |
+| **HEAD**   | `@app.head(path)`     | Obtener metadatos (sin cuerpo).     |
+| **TRACE**  | `@app.trace(path)`    | Depuración (eco de la solicitud).   |
+
 ## Operaciones HTTP Básicas
 
 ### 1. GET - Obtener Datos
