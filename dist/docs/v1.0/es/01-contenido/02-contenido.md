@@ -99,7 +99,7 @@ def obtener_usuario(usuario_id: int):
             return {"usuario": usuario}
     return {"error": f"Usuario con ID {usuario_id} no encontrado"}
 
-# Rutas POST (corregido sin Pydantic)
+# Rutas POST 
 @app.post("/usuarios")
 def crear_usuario(request: dict = Body(...)):  # Captura el JSON como dict
     global contador_id
@@ -128,7 +128,7 @@ def crear_usuario(request: dict = Body(...)):  # Captura el JSON como dict
     
     return {"mensaje": "Usuario creado exitosamente", "usuario": nuevo_usuario}
 
-# Rutas PUT (corregido sin Pydantic)
+# Rutas PUT 
 @app.put("/usuarios/{usuario_id}")
 def actualizar_usuario(usuario_id: int, request: dict = Body(...)):
     # Chequeo manual: verificar si faltan campos
