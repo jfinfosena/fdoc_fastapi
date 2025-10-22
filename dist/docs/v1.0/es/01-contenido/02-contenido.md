@@ -60,153 +60,14 @@ FastAPI soporta todos los métodos HTTP estándar. Aquí va una tabla con los m�
 | **HEAD**   | `@app.head(path)`     | Obtener metadatos (sin cuerpo).     |
 | **TRACE**  | `@app.trace(path)`    | Depuración (eco de la solicitud).   |
 
-## Operaciones HTTP Básicas
 
-### 1. GET - Obtener Datos
-
-La operación GET se usa para recuperar información del servidor:
-
-```python
-# Lista simple de usuarios (simulada)
-usuarios_db = [
-    {"id": 1, "nombre": "Juan", "email": "juan@email.com"},
-    {"id": 2, "nombre": "María", "email": "maria@email.com"},
-    {"id": 3, "nombre": "Carlos", "email": "carlos@email.com"}
-]
-
-@app.get("/")
-def root():
-    """Ruta raíz de la API"""
-    return {"mensaje": "¡Bienvenido a mi API con FastAPI!"}
-
-@app.get("/usuarios")
-def obtener_usuarios():
-    """Obtener todos los usuarios"""
-    return {"usuarios": usuarios_db}
-
-@app.get("/usuarios/{usuario_id}")
-def obtener_usuario(usuario_id: int):
-    """Obtener un usuario específico por ID"""
-    for usuario in usuarios_db:
-        if usuario["id"] == usuario_id:
-            return {"usuario": usuario}
-    
-    return {"error": f"Usuario con ID {usuario_id} no encontrado"}
-
-@app.get("/salud")
-def verificar_salud():
-    """Endpoint para verificar el estado de la API"""
-    return {
-        "estado": "activo",
-        "mensaje": "La API está funcionando correctamente"
-    }
-```
-
-### 2. POST - Crear Datos
-
-La operación POST se utiliza para enviar datos al servidor y crear nuevos recursos:
-
-```python
-# Variable para generar IDs únicos
-contador_id = 4  # Empezamos en 4 porque ya tenemos 3 usuarios
-
-@app.post("/usuarios")
-def crear_usuario(nombre: str, email: str):
-    """Crear un nuevo usuario"""
-    global contador_id
-    
-    # Verificar si el email ya existe
-    for usuario in usuarios_db:
-        if usuario["email"] == email:
-            return {"error": "El email ya está registrado"}
-    
-    # Crear nuevo usuario
-    nuevo_usuario = {
-        "id": contador_id,
-        "nombre": nombre,
-        "email": email
-    }
-    
-    usuarios_db.append(nuevo_usuario)
-    contador_id += 1
-    
-    return {"mensaje": "Usuario creado exitosamente", "usuario": nuevo_usuario}
-
-@app.post("/productos")
-def crear_producto(nombre: str, precio: float):
-    """Crear un producto simple"""
-    producto = {
-        "id": 1,
-        "nombre": nombre,
-        "precio": precio
-    }
-    
-    return {"mensaje": "Producto creado exitosamente", "producto": producto}
-```
-
-### 3. PUT - Actualizar Completamente
-
-PUT se usa para actualizar completamente un recurso existente:
-
-```python
-@app.put("/usuarios/{usuario_id}")
-def actualizar_usuario_completo(usuario_id: int, nombre: str, email: str):
-    """Actualizar completamente un usuario existente"""
-    
-    # Buscar el usuario
-    for i, usuario in enumerate(usuarios_db):
-        if usuario["id"] == usuario_id:
-            # Actualizar completamente
-            usuarios_db[i] = {
-                "id": usuario_id,
-                "nombre": nombre,
-                "email": email
-            }
-            return {"mensaje": "Usuario actualizado", "usuario": usuarios_db[i]}
-    
-    return {"error": f"Usuario con ID {usuario_id} no encontrado"}
-
-@app.put("/productos/{producto_id}")
-def actualizar_producto(producto_id: int, nombre: str, precio: float):
-    """Actualizar un producto completamente"""
-    producto_actualizado = {
-        "id": producto_id,
-        "nombre": nombre,
-        "precio": precio
-    }
-    
-    return {"mensaje": "Producto actualizado", "producto": producto_actualizado}
-```
-
-### 4. DELETE - Eliminar Datos
-
-DELETE se usa para eliminar recursos del servidor:
-
-```python
-@app.delete("/usuarios/{usuario_id}")
-def eliminar_usuario(usuario_id: int):
-    """Eliminar un usuario por ID"""
-    
-    # Buscar y eliminar usuario
-    for i, usuario in enumerate(usuarios_db):
-        if usuario["id"] == usuario_id:
-            usuario_eliminado = usuarios_db.pop(i)
-            return {"mensaje": "Usuario eliminado", "usuario": usuario_eliminado}
-    
-    return {"error": f"Usuario con ID {usuario_id} no encontrado"}
-
-@app.delete("/productos/{producto_id}")
-def eliminar_producto(producto_id: int):
-    """Eliminar un producto por ID"""
-    return {"mensaje": f"Producto {producto_id} eliminado exitosamente"}
-```
 
 ## Ejemplo Completo de Aplicación
 
 Aquí tienes un ejemplo completo que puedes copiar y ejecutar:
 
 ```python
-from fastapi import FastAPI
+from fastapi import FastAPI, Body  # Agregamos Body para el JSON
 import uvicorn
 
 # Crear la instancia de FastAPI
@@ -238,14 +99,21 @@ def obtener_usuario(usuario_id: int):
             return {"usuario": usuario}
     return {"error": f"Usuario con ID {usuario_id} no encontrado"}
 
-# Rutas POST
+# Rutas POST (corregido sin Pydantic)
 @app.post("/usuarios")
-def crear_usuario(nombre: str, email: str):
+def crear_usuario(request: dict = Body(...)):  # Captura el JSON como dict
     global contador_id
     
+    # Chequeo manual: verificar si faltan campos
+    if "nombre" not in request or "email" not in request:
+        return {"error": "Faltan campos: nombre y email son requeridos"}
+    
+    nombre = request["nombre"]
+    email = request["email"]
+    
     # Verificar si el email ya existe
-    for usuario in usuarios_db:
-        if usuario["email"] == email:
+    for u in usuarios_db:
+        if u["email"] == email:
             return {"error": "El email ya está registrado"}
     
     # Crear nuevo usuario
@@ -260,11 +128,23 @@ def crear_usuario(nombre: str, email: str):
     
     return {"mensaje": "Usuario creado exitosamente", "usuario": nuevo_usuario}
 
-# Rutas PUT
+# Rutas PUT (corregido sin Pydantic)
 @app.put("/usuarios/{usuario_id}")
-def actualizar_usuario(usuario_id: int, nombre: str, email: str):
-    for i, usuario in enumerate(usuarios_db):
-        if usuario["id"] == usuario_id:
+def actualizar_usuario(usuario_id: int, request: dict = Body(...)):
+    # Chequeo manual: verificar si faltan campos
+    if "nombre" not in request or "email" not in request:
+        return {"error": "Faltan campos: nombre y email son requeridos"}
+    
+    nombre = request["nombre"]
+    email = request["email"]
+    
+    for i, u in enumerate(usuarios_db):
+        if u["id"] == usuario_id:
+            # Verificar si el nuevo email ya existe (excepto en el mismo usuario)
+            for otro_u in usuarios_db:
+                if otro_u["email"] == email and otro_u["id"] != usuario_id:
+                    return {"error": "El email ya está registrado por otro usuario"}
+            
             usuarios_db[i] = {
                 "id": usuario_id,
                 "nombre": nombre,
@@ -346,76 +226,6 @@ title: Consejos Importantes
 5. **Organiza tu código** en módulos separados cuando crezca
 ```
 
-### Ejemplo de Buenas Prácticas
-
-```python
-from fastapi import FastAPI
-
-app = FastAPI(
-    title="Mi API de Usuarios",
-    description="Una API simple para gestionar usuarios",
-    version="1.0.0"
-)
-
-# Base de datos simulada
-usuarios_db = []
-contador_id = 1
-
-@app.get("/", tags=["General"])
-def obtener_informacion_api():
-    """
-    Obtiene información básica de la API
-    """
-    return {
-        "nombre": "API de Usuarios",
-        "version": "1.0.0",
-        "estado": "activo"
-    }
-
-@app.get("/usuarios", tags=["Usuarios"])
-def listar_usuarios():
-    """
-    Obtiene la lista completa de usuarios registrados
-    """
-    return {
-        "usuarios": usuarios_db,
-        "total": len(usuarios_db)
-    }
-
-@app.post("/usuarios", tags=["Usuarios"])
-def registrar_usuario(nombre: str, email: str):
-    """
-    Registra un nuevo usuario en el sistema
-    
-    - **nombre**: Nombre completo del usuario
-    - **email**: Dirección de correo electrónico única
-    """
-    global contador_id
-    
-    # Validar que el email no esté vacío
-    if not email or "@" not in email:
-        return {"error": "Email inválido"}
-    
-    # Verificar email único
-    for usuario in usuarios_db:
-        if usuario["email"] == email:
-            return {"error": "El email ya está registrado"}
-    
-    # Crear usuario
-    nuevo_usuario = {
-        "id": contador_id,
-        "nombre": nombre,
-        "email": email
-    }
-    
-    usuarios_db.append(nuevo_usuario)
-    contador_id += 1
-    
-    return {
-        "mensaje": "Usuario registrado exitosamente",
-        "usuario": nuevo_usuario
-    }
-```
 
 ## Probar la API (interactivo)
 
