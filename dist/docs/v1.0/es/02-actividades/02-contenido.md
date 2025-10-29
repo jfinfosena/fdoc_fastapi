@@ -4,7 +4,19 @@ position: 2
 date: 2025-10-22
 ---
 
-Esta actividad consiste en crear una API utilizando exclusivamente los conceptos y ejemplos presentados en [FastAPI: Rutas y Operaciones HTTP](/01-contenido/02-contenido.md)
+Esta actividad consiste en crear una API utilizando exclusivamente los conceptos y ejemplos presentados en:
+
+
+```cards
+---
+columns: 1
+items:
+  - title: "FastAPI: Rutas y Operaciones HTTP"
+    icon: "RocketIcon"
+    href: "/01-contenido/02-contenido.md"
+    content: "Diseñar y construir una API funcional con rutas básicas (`GET`, `POST`, `PUT`, `DELETE`)."
+---
+```
 
 ```admonition
 type: info

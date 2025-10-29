@@ -4,7 +4,17 @@ position: 3
 date: 2025-10-27
 ---
 
-Esta actividad debe implementarse **estrictamente** con base en el contenido de:  [Rutas, parámetros de ruta y parámetros de consulta (queries)](01-contenido\03-contenido.md)
+Esta actividad debe implementarse **estrictamente** con base en el contenido de:  
+```cards
+---
+columns: 1
+items:
+  - title: "Rutas, parámetros de ruta y parámetros de consulta (queries)"
+    icon: "RocketIcon"
+    href: "01-contenido\03-contenido.md"
+    content: "Rutas, parámetros de ruta y parámetros de consulta (queries)"
+---
+```
 
 ## Objetivo
 - Construir una API con FastAPI que demuestre rutas básicas, **parámetros de ruta** y **parámetros de consulta**.
