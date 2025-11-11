@@ -4,35 +4,49 @@ position: 0
 date: 2025-11-10
 ---
 
-## Paso 0 – Antes de empezar
-Solo el líder del grupo debe hacer el fork del repositorio.  
-Dirígete a:
+
+### 1) Crear Fork del Repositorio
+Solo el líder del grupo debe crear el repositorio para la actividad.  
 
 ```bash
-https://github.com/jfinfosena/proyecto_integrador_fastapi.git
+https://github.com/jfinfosena/proyecto_integrador_ciencia_datos.git
 ```
 
 Pulsa el botón **Fork** (esquina superior derecha) desde la cuenta del líder.
 
-Clonación recomendada:
-
-1) El líder clona su fork en su equipo:
+### 2) El líder clona su fork en su equipo:
 
 ```bash
-git clone https://github.com/LIDER-DEL-GRUPO/proyecto_integrador_fastapi.git
-cd proyecto_integrador_fastapi
-
-2) El líder agrega a los integrantes como colaboradores en su fork (Settings → Collaborators) o comparte el enlace del fork para que ellos lo clonen directamente:
-
-```bash
-git clone https://github.com/LIDER-DEL-GRUPO/proyecto_integrador_fastapi.git
+git clone https://github.com/LIDER-DEL-GRUPO/proyecto_integrador_ciencia_datos.git
+cd proyecto_integrador_ciencia_datos
 ```
 
-3) Flujo de trabajo recomendado:
-- Rama `main` protegida (sin commits directos).
-- Cada integrante crea ramas por funcionalidad: `feature/<nombre>`.
-- Integración vía Pull Requests al fork del líder (revisión mínima por 1 compañero).
+### 3) El líder agrega a los integrantes como colaboradores en su fork (Settings → Collaborators) o comparte el enlace del fork para que ellos lo clonen directamente:
 
+```bash
+git clone https://github.com/LIDER-DEL-GRUPO/proyecto_integrador_ciencia_datos.git
+```
+
+### 3) Flujo de trabajo recomendado:
+- Rama `main` protegida (sin commits directos).
+- Cada integrante crea ramas por funcionalidad: `feature/<nombre>` (ej. `feature/descripcion-datos`).
+
+### 4) Registro del grupo: info.json
+Antes de iniciar la preparación, diligencia el archivo `info.json` en la raíz del repositorio del líder con la siguiente estructura:
+
+```json
+{
+  "nombres": "",
+  "apellidos": "",
+  "grupo": "datos-#"
+}
+```
+
+Indicaciones:
+- `nombres` y `apellidos`: del líder del grupo.
+- `grupo`: reemplaza `#` por el número asignado (ej. `datos-3`).
+- Este archivo sirve para identificar el grupo durante la evaluación.
+- Inclúyelo en el primer commit del fork y actualízalo si cambia el liderazgo.
 
 ## Indicaciones para el Proyecto Integrador con FastAPI
 
@@ -68,19 +82,4 @@ La implementación debe seguir estas guías y patrones, adaptando los modelos, r
 - Asegura consistencia de estilos y convenciones entre módulos.
 - Revisa y prueba cada aporte antes de fusionarlo a `main`.
 
-## Registro del grupo: info.json
-Antes de iniciar el desarrollo, diligencia el archivo `info.json` en la raíz del repositorio del líder con la siguiente estructura:
 
-```json
-{
-  "nombres": "",
-  "apellidos": "",
-  "grupo": "fastapi-#"
-}
-```
-
-Indicaciones:
-- `nombres` y `apellidos`: del líder del grupo.
-- `grupo`: reemplaza `#` por el número asignado (ej. `fastapi-3`).
-- Este archivo sirve para identificar el grupo durante la evaluación y el despliegue.
-- Inclúyelo en el primer commit del fork y actualízalo si cambia el liderazgo.
