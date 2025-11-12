@@ -409,4 +409,34 @@ Guarda este archivo, ejecuta con `uvicorn main:app --reload`, y ¡explora en [ht
 
 ---
 
+## 🔍 Validación y Documentación con Pydantic en FastAPI
+
+La integración de **Pydantic** en **FastAPI** optimiza la validación de datos, la generación de documentación y la mantenibilidad de APIs RESTful. A continuación, un resumen de cómo lo logra:
+
+### **1. Validación de datos**
+- **Entrada**: Pydantic valida automáticamente datos de solicitudes (JSON, query params) según modelos declarativos, devolviendo errores 422 si no cumplen (ej: tipo incorrecto, campo faltante).
+- **Salida**: Garantiza que las respuestas coincidan con el esquema definido (usando `response_model`).
+- **Beneficio**: Reduce código manual, mejora robustez y simplifica manejo de errores.
+- **Ejemplo**:
+  ```python
+  from fastapi import FastAPI
+  from pydantic import BaseModel
+
+  app = FastAPI()
+
+  class Mascota(BaseModel):
+      nombre: str
+      edad: int
+
+  @app.post("/mascotas")
+  async def crear_mascota(mascota: Mascota):
+      return mascota
+  ```
+  - Valida que `nombre` sea string y `edad` sea entero; falla si no.
+
+### **2. Documentación automática (OpenAPI/Swagger UI)**
+- Pydantic genera esquemas OpenAPI a partir de modelos, que FastAPI usa para crear documentación interactiva en `/docs`.
+- Muestra endpoints, parámetros, esquemas y permite pruebas en tiempo real.
+- **Beneficio**: Documentación siempre actualizada, sin esfuerzo manual, accesible en `http://localhost:8000/docs`.
+
 

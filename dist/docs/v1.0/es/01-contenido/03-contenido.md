@@ -291,3 +291,94 @@ endpoints:
 ---
 ````
 
+## 📝 Parámetros de ruta y consulta
+
+En FastAPI, los **parámetros de ruta** (*path parameters*) y los **parámetros de consulta** (*query parameters*) son dos formas distintas de pasar datos a una API RESTful, cada una con propósitos y características específicas. A continuación, explico sus diferencias fundamentales, cuándo usar cada uno y ejemplos prácticos.
+
+### **Diferencias fundamentales**
+
+1. **Ubicación en la URL**:
+   - **Parámetros de ruta**: Forman parte de la estructura de la URL, definidos dentro del path de la ruta. Se indican entre llaves `{}` en la definición de la ruta.
+     - Ejemplo: `/mascotas/{mascota_id}` → `mascota_id` es un parámetro de ruta.
+   - **Parámetros de consulta**: Se añaden al final de la URL después de un signo de interrogación (`?`), en formato clave-valor (`clave=valor`), separados por `&` si hay varios.
+     - Ejemplo: `/mascotas?especie=perro&vacunado=true` → `especie` y `vacunado` son parámetros de consulta.
+
+2. **Propósito**:
+   - **Parámetros de ruta**: Identifican un recurso específico o único en la API. Son esenciales para definir la jerarquía o estructura de los recursos.
+     - Ejemplo: `/mascotas/123` identifica la mascota con ID 123.
+   - **Parámetros de consulta**: Filtran, ordenan o personalizan la respuesta de un recurso o conjunto de recursos. No son parte de la identidad del recurso, sino que modifican cómo se devuelve.
+     - Ejemplo: `/mascotas?especie=perro` filtra la lista de mascotas para mostrar solo perros.
+
+3. **Obligatoriedad**:
+   - **Parámetros de ruta**: Son obligatorios, ya que forman parte del path. Si no se proporcionan, la ruta no coincide y la solicitud falla (404).
+     - Ejemplo: Si defines `/mascotas/{mascota_id}`, el cliente debe proporcionar un valor para `mascota_id`.
+   - **Parámetros de consulta**: Son opcionales por defecto, a menos que se especifique lo contrario (por ejemplo, con validaciones en FastAPI).
+     - Ejemplo: En `/mascotas?especie=perro`, el parámetro `especie` puede omitirse.
+
+4. **Tipado y validación**:
+   - Ambos permiten tipado y validación en FastAPI, pero los **parámetros de ruta** suelen ser más estrictos, ya que identifican recursos específicos (por ejemplo, un ID como entero).
+   - Los **parámetros de consulta** suelen ser más flexibles, ya que se usan para filtrar o configurar (por ejemplo, cadenas, booleanos, listas).
+
+5. **Semántica REST**:
+   - **Parámetros de ruta**: Reflejan la jerarquía de recursos en una API RESTful, alineándose con la idea de identificar recursos únicos.
+   - **Parámetros de consulta**: Ajustan o filtran la representación de un recurso, siguiendo las convenciones de REST para personalizar respuestas.
+
+### **Cuándo y por qué usar cada uno**
+
+- **Usa parámetros de ruta** cuando:
+  - Necesitas identificar un recurso específico o único.
+  - La información es esencial para localizar el recurso en la estructura de la API.
+  - Quieres que la URL sea clara y refleje la jerarquía de recursos.
+  - Ejemplo: Obtener los detalles de una mascota específica por su ID.
+
+- **Usa parámetros de consulta** cuando:
+  - Quieres filtrar, ordenar o personalizar una lista de recursos o una respuesta.
+  - Los parámetros son opcionales o tienen valores por defecto.
+  - La información no es parte de la identidad del recurso, sino un ajuste a la respuesta.
+  - Ejemplo: Filtrar una lista de mascotas por especie o estado de vacunación.
+
+### **Ejemplos en FastAPI**
+
+#### **Ejemplo 1: Parámmetro de ruta**
+Supongamos que queremos obtener los detalles de una mascota específica por su ID.
+
+```python
+from fastapi import FastAPI
+
+app = FastAPI()
+
+@app.get("/mascotas/{mascota_id}")
+async def obtener_mascota(mascota_id: int):
+    return {"mensaje": f"Mascota con ID {mascota_id} obtenida"}
+```
+
+- **Explicación**:
+  - La ruta `/mascotas/{mascota_id}` usa `mascota_id` como parámetro de ruta.
+  - Es obligatorio y se espera un entero (`int`).
+  - Ejemplo de solicitud: `GET /mascotas/123` → Respuesta: `{"mensaje": "Mascota con ID 123 obtenida"}`.
+  - **Por qué usarlo**: El ID identifica un recurso único (una mascota específica), y la ruta refleja claramente la estructura del recurso.
+
+#### **Ejemplo 2: Parámmetro de consulta**
+Supongamos que queremos obtener una lista de mascotas, filtrada opcionalmente por especie.
+
+```python
+from fastapi import FastAPI
+
+app = FastAPI()
+
+@app.get("/mascotas")
+async def listar_mascotas(especie: str | None = None):
+    if especie:
+        return {"mensaje": f"Lista de mascotas de especie {especie}"}
+    return {"mensaje": "Lista de todas las mascotas"}
+```
+
+- **Explicación**:
+  - La ruta `/mascotas` acepta un parámetro de consulta opcional `especie`.
+  - Se define como `str | None` con valor por defecto `None`, lo que lo hace opcional.
+  - Ejemplo de solicitud:
+    - `GET /mascotas` → Respuesta: `{"mensaje": "Lista de todas las mascotas"}`.
+    - `GET /mascotas?especie=perro` → Respuesta: `{"mensaje": "Lista de mascotas de especie perro"}`.
+  - **Por qué usarlo**: El parámetro `especie` filtra la lista de mascotas, pero no identifica un recurso único. Es opcional y ajusta la respuesta.
+
+
