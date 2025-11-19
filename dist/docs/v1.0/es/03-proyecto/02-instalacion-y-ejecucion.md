@@ -28,7 +28,8 @@ pip install -r requirements.txt
 ## 3) Configurar variables de entorno (opcional)
 
 El proyecto carga configuración desde `.env` si existe. Ejemplo:
-```
+
+```bash
 APP_NAME=Project Name API
 # DATABASE_URL=sqlite:///./project.db
 DATABASE_URL=postgresql://USER:PASSWORD@HOST:PORT/DBNAME
