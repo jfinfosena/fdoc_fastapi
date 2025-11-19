@@ -29,9 +29,23 @@ pip install -r requirements.txt
 
 El proyecto carga configuración desde `.env` si existe. Ejemplo:
 ```
-APP_NAME="Project Name API"
-DATABASE_URL="sqlite:///./project.db"
+APP_NAME=Project Name API
+# DATABASE_URL=sqlite:///./project.db
+DATABASE_URL=postgresql://USER:PASSWORD@HOST:PORT/DBNAME
 AUTO_CREATE_TABLES=true
+
+# CORS configuration (use JSON arrays for lists)
+# Examples:
+# CORS_ALLOW_ORIGINS=["http://localhost:3000","http://127.0.0.1:5173"]
+CORS_ALLOW_ORIGINS=["*"]
+CORS_ALLOW_METHODS=["*"]
+CORS_ALLOW_HEADERS=["*"]
+CORS_ALLOW_CREDENTIALS=true
+
+# JWT
+JWT_SECRET="CHANGE_ME_SUPER_SECRET_KEY"
+JWT_ALGORITHM="HS256"
+JWT_EXPIRATION_MINUTES=60
 ```
 
 ## 4) Ejecutar el servidor de desarrollo

@@ -9,7 +9,7 @@ date: 2025-11-10
 Solo el líder del grupo debe crear el repositorio para la actividad.  
 
 ```bash
-https://github.com/jfinfosena/proyecto_integrador_ciencia_datos.git
+https://github.com/jfinfosena/proyecto_integrador_fastapi.git
 ```
 
 Pulsa el botón **Fork** (esquina superior derecha) desde la cuenta del líder.
@@ -17,14 +17,14 @@ Pulsa el botón **Fork** (esquina superior derecha) desde la cuenta del líder.
 ### 2) El líder clona su fork en su equipo:
 
 ```bash
-git clone https://github.com/LIDER-DEL-GRUPO/proyecto_integrador_ciencia_datos.git
-cd proyecto_integrador_ciencia_datos
+git clone https://github.com/LIDER-DEL-GRUPO/proyecto_integrador_fastapi.git
+cd proyecto_integrador_fastapi
 ```
 
 ### 3) El líder agrega a los integrantes como colaboradores en su fork (Settings → Collaborators) o comparte el enlace del fork para que ellos lo clonen directamente:
 
 ```bash
-git clone https://github.com/LIDER-DEL-GRUPO/proyecto_integrador_ciencia_datos.git
+git clone https://github.com/LIDER-DEL-GRUPO/proyecto_integrador_fastapi.git
 ```
 
 ### 3) Flujo de trabajo recomendado:
