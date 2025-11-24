@@ -4,10 +4,9 @@ position: 7
 date: 2025-11-24
 ---
 
-
-
-
 Este repositorio reúne seis ejemplos didácticos construidos con FastAPI (backend) y HTML/JS (frontend). Cada ejemplo aborda un caso común de desarrollo web y comparte una estructura similar: modelos y esquemas de datos, operaciones CRUD, enrutadores de API y una interfaz mínima en `frontend/`.
+
+## Repositorio
 
 ```bash
 https://github.com/jfinfosena/act_pi_pap_grupos.git
@@ -15,22 +14,22 @@ https://github.com/jfinfosena/act_pi_pap_grupos.git
 
 ## Índice de ejemplos
 
-- [Ejemplo 1 — Sistema PQRS](./Ejemplo%201/)  
+- ### Ejemplo 1 — Sistema PQRS
   Gestión de Peticiones, Quejas, Reclamos y Sugerencias. Permite crear y listar PQRS mediante la API (`/pqrs`).
 
-- [Ejemplo 2 — Productos, Usuarios y Reseñas](./Ejemplo%202/)  
+- ### Ejemplo 2 — Productos, Usuarios y Reseñas
   Catálogo de productos con usuarios y reseñas relacionadas. Expone CRUD para `/products`, `/users` y `/reviews` y demuestra relaciones entre entidades.
 
-- [Ejemplo 3 — Supermercado con Carrito](./Ejemplo%203/)  
+- ### Ejemplo 3 — Supermercado con Carrito
   Gestión de productos y un carrito de compras global. Incluye endpoints de productos y carrito (`/products`, `/cart`).
 
-- [Ejemplo 4 — Cafetería con Carrito](./Ejemplo%204/)  
+- ### Ejemplo 4 — Cafetería con Carrito
   Menú de cafetería con tipos de producto (bebida, postre, snack) y carrito. Exposición de `/products` y `/cart`.
 
-- [Ejemplo 5 — Concesionario de Autos](./Ejemplo%205/)  
+- ### Ejemplo 5 — Concesionario de Autos  
   Galería y estado de venta de autos. CRUD de `/autos` con posibilidad de marcar como vendidos y eliminar.
 
-- [Ejemplo 6 — Gestor de Recetas](./Ejemplo%206/)  
+- ### Ejemplo 6 — Gestor de Recetas
   Registro y listado de recetas con ingredientes y pasos. API centrada en `/recetas` para crear y consultar.
 
 ## Explicación general de cada ejemplo
